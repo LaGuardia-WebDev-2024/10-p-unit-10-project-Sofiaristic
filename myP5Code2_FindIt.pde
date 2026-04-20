@@ -9,6 +9,12 @@ var planet = "🪐";
 var planetTotal = 3;
 var planetFound = 0;
 
+var unicornXPos = [];
+var unicornYPos = [];
+var unicorn = "🦄";
+var unicornTotal = 8;
+var unicornFound = 0;
+
 setup = function() {
    size(600, 450); 
 
@@ -24,6 +30,13 @@ draw = function(){
    }
 
   display();
+
+var x = 0;
+while (x< 400){
+  text("✨",x,300);
+  x+=170;
+}
+
 }
 
 
@@ -37,6 +50,16 @@ var check = function(xClick, yClick){
       planetXPos.splice(i, 1);
       planetYPos.splice(i, 1);
       planetFound++;
+    }
+  }
+
+
+
+for(var i = 0; i < unicornXPos.length; i++){
+    if(dist(xClick - 5, yClick - 5, unicornXPos[i], unicornYPos[i])<15){
+      unicornXPos.splice(i, 1);
+      unicornYPos.splice(i, 1);
+      unicornFound++;
     }
   }
 }
@@ -55,6 +78,10 @@ var display = function(){
     text(star, starXPos[i], starYPos[i]);
   }
 
+for(var i = 0; i < unicornXPos.length; i ++){
+    text(unicorn, unicornXPos[i], unicornYPos[i]);
+  }
+
   fill(0,0,0);
   rect(0,400,600,50);
   fill(255,255,255);
@@ -64,6 +91,9 @@ var display = function(){
     fill(0, 200, 200);
     textSize(50);
     text("Press 'r' to restart \nthe game", 50, 200);
+  }
+  if(mousePressed){
+    text ("✨", random (0,400),random (0,600));
   }
 }
 
@@ -83,5 +113,10 @@ var reset = function(){
   for(var i = 0; i < planetTotal; i++){
     planetXPos.push(random(0,600));
     planetYPos.push(random(0,400));
+  }
+
+    for(var i = 0; i < unicornTotal; i++){
+    unicornXPos.push(random(0,600));
+    unicornYPos.push(random(0,400));
   }
 }
