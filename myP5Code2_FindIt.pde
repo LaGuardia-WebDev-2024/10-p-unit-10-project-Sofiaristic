@@ -9,6 +9,7 @@ var planet = "🪐";
 var planetTotal = 3;
 var planetFound = 0;
 
+//unicorn emoji click
 var unicornXPos = [];
 var unicornYPos = [];
 var unicorn = "🦄";
@@ -31,6 +32,7 @@ draw = function(){
 
   display();
 
+//moving star 
 var x = 0;
 while (x< 400){
   text("✨",x,300);
@@ -92,6 +94,8 @@ for(var i = 0; i < unicornXPos.length; i ++){
     textSize(50);
     text("Press 'r' to restart \nthe game", 50, 200);
   }
+
+  //star moving when click
   if(mousePressed){
     text ("✨", random (0,400),random (0,600));
   }
