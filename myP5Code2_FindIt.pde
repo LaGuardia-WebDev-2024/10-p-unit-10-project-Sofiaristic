@@ -95,7 +95,7 @@ for(var i = 0; i < unicornXPos.length; i ++){
     text("Press 'r' to restart \nthe game", 50, 200);
   }
 
-  //star moving when click
+  //star moving when click + etxra Feature
   if(mousePressed){
     text ("✨", random (0,400),random (0,600));
   }
@@ -119,6 +119,7 @@ var reset = function(){
     planetYPos.push(random(0,400));
   }
 
+//for unicorn
     for(var i = 0; i < unicornTotal; i++){
     unicornXPos.push(random(0,600));
     unicornYPos.push(random(0,400));
